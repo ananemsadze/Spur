@@ -1,0 +1,24 @@
+<!-- for inheriting index.html-->
+{% extends "index.html" %}
+{% block Title%}Advices{% endblock%}
+
+{% block Navigation %}
+     <nav class="navMenu" style="display: inline">
+          <ul>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('motivation') }}">Motivation</a></li>
+              <li><a href="{{ url_for('advices') }}">Advices</a></li>
+              <li><a  style="  color: #DA897A;
+              border-bottom:1px solid #000000; font-weight: bold;"
+                      href="{{ url_for('bored') }}">Bored?</a></li>
+              <li><a href="#">About Us</a></li>
+          </ul>
+      </nav>
+{% endblock %}
+
+{% block Buttons %} {% endblock %}
+{% block quote %}{% endblock %}
+
+{% block Background %}
+<img style="width: 100%" class="AdviceBG" src="{{ url_for('static', filename='images/bored.jpg') }}"
+             alt="Advice Page's Background">" {% endblock %}

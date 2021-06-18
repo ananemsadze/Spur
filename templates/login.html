@@ -1,0 +1,41 @@
+<!-- for inheriting index.html-->
+{% extends "index.html" %}
+{% block Title%}Log In{% endblock%}
+
+{% block href%}href="{{ url_for('static', filename='css/login.css') }}"{% endblock%}
+{% block Navigation %} {% endblock %}
+
+{% block Buttons %} {% endblock %}
+
+
+{% block Background %}
+
+    <div id="wrapper">
+        <img id="LoginBackground"
+             src="{{ url_for('static', filename='images/home_background.png') }}"
+             alt="Log In Page's Background">
+    </div>
+
+
+
+
+    <div class="center">
+        <form method="post">
+            <div class="txt_field">
+                <input type="email" required>
+                <label>Email</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+            <input type="submit" value="Log In">
+            <div class="signup_link">Not a member? <a href="#">Sign Up</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+
+{% block quote %} {% endblock %}

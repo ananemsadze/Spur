@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block Title%}Motivation{% endblock%}</title>
+    <link rel="stylesheet"
+          {% block href%}href="{{ url_for('static', filename='css/styles.css') }}"{% endblock%}>
+
+  </head>
+  <body>
+
+    <!-- Navigation Bar -->
+  {% block Navigation %}
+      <nav class="navMenu" style="display: inline">
+          <ul>
+              <li><a  style="  color: #DA897A;
+              border-bottom:1px solid #000000; font-weight: bold;" href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('motivation') }}">Motivation</a></li>
+              <li><a href="{{ url_for('advices') }}">Advices</a></li>
+              <li><a href="{{ url_for('bored') }}">Bored?</a></li>
+              <li><a href="#">About Us</a></li>
+          </ul>
+      </nav>
+  {% endblock %}
+    <!-- End of Bar -->
+
+
+    <!-- Buttons -->
+    {% block Buttons %}
+        <nav class="Buttons" style="display: inline;  float:right;" >
+            <li><a href="{{ url_for('login')}}"><button class="LoginButton">log in</button></a></li>
+            <li><a href="/"><button class="SignUpButton">sign up</button></a></li>
+        </nav>
+    {% endblock %}
+    <!-- End of Buttons -->
+
+
+
+    <!-- Quotes -->
+    {% block quote %}
+        <div class="quotes" style="display: inline-block">
+            <p id="quote">Get your life together</p>
+        </div>
+    {% endblock %}
+
+   <!-- End of Quotes -->
+
+
+    {% block Background %}
+        <img id="AdviceBackground"
+             src="{{ url_for('static', filename='images/home_background.png') }}"
+             alt="Home Page's Background">
+    {% endblock %}
+
+
+  </body>
+</html>
