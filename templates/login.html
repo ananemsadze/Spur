@@ -16,11 +16,9 @@
              alt="Log In Page's Background">
     </div>
 
-
-
-
     <div class="center">
         <form method="post">
+            <h3 style="font-size: 45px">Welcome Back!</h3>
             <div class="txt_field">
                 <input type="email" required>
                 <label>Email</label>
@@ -33,6 +31,15 @@
             <div class="signup_link">Not a member? <a href="#">Sign Up</a>
             </div>
         </form>
+    </div>
+
+    <div class="backDiv">
+    <a href="{{ url_for('home')}}"><button class="goBack">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"></path>
+        </svg>
+    </button>
+    </a>
     </div>
 
 {% endblock %}
