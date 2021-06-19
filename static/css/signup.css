@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+
+#RegisterBackground{
+    top: 0;
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    animation:image 3s;
+    -moz-animation:image 3s; /* Firefox */
+    -webkit-animation:image 3s; /* Safari and Chrome */
+    animation-fill-mode: forwards;
+}
+
+/* Sliding Animations */
+@keyframes image {
+    from {left: 50%;}
+    to{left:0;} }
+
+@-moz-keyframes image {
+    from {left: 480px;}
+    to{left:0;} }
+
+@-webkit-keyframes image {
+    from {left: 480px;}
+    to{left:0;} }
+
+
+form{
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    font-size: 0.5em;
+    right: 0;
+    -webkit-animation: fadein 5s ; /* Chrome, Safari, Opera */
+    animation: fadein 5s ;
+}
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  /* Standard syntax */
+  @keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+.center{
+  position: absolute;
+  top: 50%;right: 1px;
+  transform: translate(-40%, -50%);
+  width: 350px;
+  background: transparent;
+  border-radius: 10px;
+  border-color: #000000;
+
+}
+
+.center form{
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+
+form .txt_field{
+  position: relative;
+  border-bottom: 1px solid #000000;
+  margin: 30px 0;
+}
+.txt_field input{
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.txt_field label{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #000000;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: .5s;
+}
+.txt_field span::before{
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #5bad9a;
+  transition: .5s;
+}
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label{
+  top: -5px;
+  color: #5bad9a;
+}
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before{
+  width: 100%;
+}
+.pass{
+  margin: -5px 0 20px 5px;
+  color: #a6a6a6;
+  cursor: pointer;
+}
+.pass:hover{
+  text-decoration: underline;
+}
+.sign_link{
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+.sign_link a{
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+}
+.sign_link a:hover{
+  color: #5bad9a;
+  text-decoration: underline;
+}
+
+
+input[type="submit"]{
+  left: 35%;
+  width: 120px;
+  height: 40px;
+  border: 1px solid;
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: 350;
+  background: #000000;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border-radius: 10%;
+  display: inline-block;
+  border: transparent;
+  z-index: 1;
+  color: #ffffff;
+}
+
+input[type="submit"]:hover{
+  color: #000000;
+  background-color: #5bad9a;
+}
+
+.backDiv{
+    margin-top: 60px;
+    float: right;
+    margin-right: 60px;
+
+}
+
+.goBack {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+		-webkit-tap-highlight-color: transparent;
+}
+
+.goBack {
+	width: 40px;
+	height: 40px;
+    transform: rotate(270deg);
+	cursor: pointer;
+	background-color: #000000;
+	border: none;
+	border-radius: 50%;
+	transition: 200ms;
+}
+
+.goBack svg {
+	fill: #ffffff;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.goBack:before {
+    transform: rotate(90deg);
+	content: 'Home';
+	position: absolute;
+	font-size: 15px;
+	transition: 200ms;
+	color: transparent;
+	font-weight: bold;
+    top: 130%;
+    right: 15%;
+}
+
+.goBack:hover {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+	width: 50px;
+	height: 50px;
+}
+
+.goBack:hover::before {
+	color: #000000;
+}
+
+.goBack:hover svg {
+		animation: bounce 2s infinite linear;
+}
+
+@keyframes bounce {
+	0% {transform: translateX(-50%) translateY(-50%)}
+	25% {transform: translateX(-50%) translateY(-65%)}
+	50% {transform: translateX(-50%) translateY(-50%)}
+	75% {transform: translateX(-50%) translateY(-35%)}
+	100% {transform: translateX(-50%) translateY(-50%)}
+}
+
+.goBack:focus {
+	outline: none;
+}

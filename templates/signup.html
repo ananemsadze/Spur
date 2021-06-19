@@ -1,0 +1,59 @@
+<!-- for inheriting index.html-->
+{% extends "index.html" %}
+{% block Title%}Registration{% endblock%}
+
+{% block href%}href="{{ url_for('static', filename='css/signup.css') }}"{% endblock%}
+{% block Navigation %} {% endblock %}
+
+{% block Buttons %} {% endblock %}
+
+
+{% block Background %}
+
+    <div id="wrapper">
+        <img id="RegisterBackground"
+             src="{{ url_for('static', filename='images/register_background.png') }}"
+             alt="Register Page's Background">
+    </div>
+
+        <div class="backDiv">
+    <a href="{{ url_for('home')}}"><button class="goBack">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"></path>
+        </svg>
+    </button>
+    </a>
+    </div>
+
+    <div class="center">
+        <form method="post">
+            <h3 style="font-size: 45px">Join Us!</h3>
+                     <div class="txt_field">
+                <input type="text" required>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input type="email" required>
+                <label>Email</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+
+            <div class="txt_field">
+                <input type="password" required>
+                <label> Repeat Password</label>
+            </div>
+
+            <input type="submit" value="Register">
+            <div class="sign_link">Already a member? <a href="{{ url_for('login')}}">Sign In</a>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}
+
+
+{% block quote %} {% endblock %}
