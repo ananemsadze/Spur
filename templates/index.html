@@ -28,7 +28,7 @@
     {% block Buttons %}
         <nav class="Buttons" style="display: inline;  float:right;" >
             <li><a href="{{ url_for('login')}}"><button class="LoginButton">log in</button></a></li>
-            <li><a href="/"><button class="SignUpButton">sign up</button></a></li>
+            <li><a href="{{ url_for('register')}}"><button class="SignUpButton">sign up</button></a></li>
         </nav>
     {% endblock %}
     <!-- End of Buttons -->

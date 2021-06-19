@@ -16,6 +16,10 @@ def motivation():
 def login():
     return render_template("login.html")
 
+@app.route('/SignUp')
+def register():
+    return render_template("signup.html")
+
 @app.route('/Advices')
 def advices():
     return render_template("advices.html")
