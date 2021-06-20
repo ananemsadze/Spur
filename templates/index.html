@@ -1,14 +1,23 @@
+<!-- This is main index.html that we're going to extend in other html -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{% block Title%}Home{% endblock%}</title>
-    <link rel="stylesheet"
-          {% block href%}href="{{ url_for('static', filename='css/styles.css') }}"{% endblock%}>
+  <!-- We're simply creating block title so in later use, just simply writing the tab name in between,
+  is going to change depending on the page we have to access-->
+      <title>{% block Title%}Spur{% endblock%}</title>
 
+  <!--the same case is with the href, depending on the html file, if we have to, we can change
+  the css file -->
+      <link rel="stylesheet"
+          {% block href%}href="{{ url_for('static', filename='css/styles.css') }}"{% endblock%}>
   </head>
+
   <body>
 
-    <!-- Navigation Bar -->
+    <!-- Navigation bar block
+    Some of the styling is done here, because we want to change the a tags' style depending
+    on the page the user is on -->
   {% block Navigation %}
       <nav class="navMenu" style="display: inline">
           <ul>
@@ -24,7 +33,9 @@
     <!-- End of Bar -->
 
 
-    <!-- Buttons -->
+    <!-- Buttons block
+     if the user is not logged in and is on the home page, the buttons for
+     login and sign up should appear -->
     {% block Buttons %}
         <nav class="Buttons" style="display: inline;  float:right;" >
             <li><a href="{{ url_for('login')}}"><button class="LoginButton">log in</button></a></li>
@@ -35,16 +46,17 @@
 
 
 
-    <!-- Quotes -->
+    <!-- Quotes
+     This is for Spar's home page's motto, we're not going to use this block later-->
     {% block quote %}
         <div class="quotes" style="display: inline-block">
             <p id="quote">Get your life together</p>
         </div>
     {% endblock %}
-
    <!-- End of Quotes -->
 
 
+    <!-- With this block we can change the background image depending on the page-->
     {% block Background %}
         <img id="HomeBackground"
              src="{{ url_for('static', filename='images/home_background.png') }}"
