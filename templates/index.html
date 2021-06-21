@@ -9,6 +9,7 @@
 
   <!--the same case is with the href, depending on the html file, if we have to, we can change
   the css file -->
+
       <link rel="stylesheet"
           {% block href%}href="{{ url_for('static', filename='css/styles.css') }}"{% endblock%}>
   </head>

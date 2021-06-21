@@ -1,0 +1,64 @@
+<!-- for inheriting index.html-->
+{% extends "index.html" %}
+
+<!-- Changing the name of the tab -->
+{% block Title%}My Profile{% endblock%}
+{% block href%}href="{{ url_for('static', filename='css/myprofile.css') }}"{% endblock%}
+
+<!-- We didn't use the super() because, we have to change a tag's (advice's) style
+and the css solely didn't work-->
+{% block Navigation %}
+   <nav class="navMenu" style="display: inline">
+          <ul>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('motivation') }}">Motivation</a></li>
+              <li><a href="{{ url_for('advices') }}">Advices</a></li>
+              <li><a href="{{ url_for('bored') }}">Bored?</a></li>
+              <li><a href="{{ url_for('about')}}">About Us</a></li>
+          </ul>
+
+      </nav>
+
+{% endblock %}
+
+<!-- We didn't write anything in quotes' block because we're not using them-->
+{% block Buttons %}
+    <nav class="userManagement">
+        <li><a  id="myProfile" style="color: #DA897A;
+              border-bottom:1px solid #000000; font-weight: bold" href="{{ url_for('profile')}}">my profile</a></li>
+        <li><a id="signOut" style="font-weight: bold" href="#">sign out</a></li>
+    </nav>
+{% endblock %}
+{% block quote %}{% endblock %}
+
+
+
+<!-- The background block is altered to display the saved quotes from previous pages -->
+{% block Background %}
+
+<img class="BG" src="{{ url_for('static', filename='images/motivation.jpg') }}"
+             alt="My Profile Page's Background">"
+
+<div class="forUser" style="margin-top: -4%">
+  <h2 class="center">@username</h2>
+    <br>
+    <h1 class="center">SAVED QUOTES</h1>
+    <br>
+</div>
+<div class="containerQuotes" style="margin-top: 23%">
+
+    <!-- For loop should generate here -->
+  <article class="episode">
+    <div><button class="SavedButton">SAVED</button></div>
+      <div class="phrase">
+        <p>The dawn right before the sun rises is the darkest.</p>
+      </div>
+  </article>
+
+</div>
+
+
+
+{% endblock %}
+
+

@@ -17,11 +17,18 @@ and the css solely didn't work-->
               <li><a href="{{ url_for('bored') }}">Bored?</a></li>
               <li><a href="{{ url_for('about')}}">About Us</a></li>
           </ul>
+
       </nav>
+
 {% endblock %}
 
-<!-- We didn't write anything in Buttons or quotes blocks because we're not using them-->
-{% block Buttons %} {% endblock %}
+<!-- We didn't write anything in quotes' block because we're not using them-->
+{% block Buttons %}
+    <nav class="userManagement">
+        <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile')}}">my profile</a></li>
+        <li><a id="signOut" style="font-weight: bold" href="#">sign out</a></li>
+    </nav>
+{% endblock %}
 {% block quote %}{% endblock %}
 
 

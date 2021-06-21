@@ -73,6 +73,46 @@ li {
   right: 0;
 }
 
+/* User Management Navigation*/
+.userManagement{
+  position: absolute;
+  margin-top: 60px;
+  right: -5%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display:inline-block;
+  padding: 10px;
+}
+
+.userManagement a {
+  color: black;
+  max-width: 200px;
+  text-decoration: none;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: 550;
+  width: 100px;
+}
+
+.userManagement a:hover{
+  color: #DA897A;
+  border-bottom:1px solid #000000;
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  opacity: 1;
+}
+
+.userManagement a:focus{
+  color: #FB5569;
+  transform: translateX(30px);
+}
+
+.userManagement li:focus{
+  color: #FB5569;
+  transform: translateX(30px);
+}
+
+/* End of User Management */
 
 .LoginButton {
   padding: 10px 25px;
@@ -159,6 +199,7 @@ li {
 .BG{
   background-size: 100%;
   width: 100%;
+  height: 100%;
 }
 
 .container {
@@ -251,4 +292,34 @@ li {
 .SaveButton:hover {
   color: black;
   background-color: #FB5569;
+}
+
+/* About Us page*/
+
+#wrapper{
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  top: 25%;
+  margin-left: 5%;
+  font-size: 20px;
+  word-wrap: break-word;
+  font-weight: 350;
+  width: 550px;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.github_link{
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+.github_link a{
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+}
+.github_link a:hover{
+  color: rgb(251, 85, 105);
+  text-decoration: underline;
 }
