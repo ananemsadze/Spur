@@ -1,46 +1,41 @@
-<!-- We didn't use extend because complex changes should be made and it's easier to start from scratch -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-      <title>Spur</title>
-      <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/myprofile.css') }}">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- for inheriting index.html-->
+{% extends "index.html" %}
 
-  </head>
+<!-- Changing the name of the tab -->
+{% block Title%}My Profile{% endblock%}
 
-  <body>
-
-  <img id="ProfileBackground"
-             src="{{ url_for('static', filename='images/home_background.png') }}"
-             alt="My Profiles's Background">
-
-      <nav class="navMenu" style="display: inline">
+<!-- We didn't use the super() because, we have to change a tag's (advice's) style
+and the css solely didn't work-->
+{% block Navigation %}
+   <nav class="navMenu" style="display: inline">
           <ul>
               <li><a href="{{ url_for('home') }}">Home</a></li>
               <li><a href="{{ url_for('motivation') }}">Motivation</a></li>
               <li><a href="{{ url_for('advices') }}">Advices</a></li>
               <li><a href="{{ url_for('bored') }}">Bored?</a></li>
-              <li><a href="{{ url_for('about') }}">About Us</a></li>
+              <li><a href="{{ url_for('about')}}">About Us</a></li>
           </ul>
+
       </nav>
 
+{% endblock %}
+
+<!-- We didn't write anything in quotes' block because we'Wre not using them-->
+{% block Buttons %}
+    <nav class="userManagement">
+        <li><a  id="myProfile" style="color: #DA897A;
+              border-bottom:1px solid #000000; font-weight: bold" href="{{ url_for('profile')}}">my profile</a></li>
+        <li><a id="signOut" style="font-weight: bold" href="#">sign out</a></li>
+    </nav>
+{% endblock %}
+{% block quote %}{% endblock %}
 
 
-<!-- to display saved quotes -->
+{% block Background %}
 
-    <h3 class="centered">@username</h3>
-<div class="list-group list-group-mine">
-  <a class="list-group-item" >My sin was not specifically this or that but consisted of having shaken hands with the devil. The devil held me in his clutches, the enemy was behind me
-      <br>
-      <button class="SavedButton">SAVED</button>
-  </a>
+{% endblock %}
 
+<!-- End of the block -->
 
 </div>
 
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-  </body>
