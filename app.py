@@ -32,5 +32,9 @@ def bored():
 def about():
     return render_template("aboutus.html")
 
+@app.route('/MyProfile')
+def profile():
+    return render_template("myprofile.html")
+
 if __name__ == '__main__':
     app.run()

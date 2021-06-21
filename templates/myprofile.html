@@ -1,0 +1,22 @@
+<!-- We didn't use extend because complex changes should be made and it's easier to start from scratch -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Spur</title>
+      <link rel="stylesheet"
+          {% block href%}href="{{ url_for('static', filename='css/styles.css') }}"{% endblock%}>
+  </head>
+
+  <body>
+
+      <nav class="navMenu" style="display: inline">
+          <ul>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('motivation') }}">Motivation</a></li>
+              <li><a href="{{ url_for('advices') }}">Advices</a></li>
+              <li><a href="{{ url_for('bored') }}">Bored?</a></li>
+              <li><a href="{{ url_for('about') }}">About Us</a></li>
+          </ul>
+      </nav>
+
+    <!-- End of Bar -->
