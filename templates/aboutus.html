@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!-- for inheriting index.html-->
+{% extends "index.html" %}
 
-</body>
-</html>
+<!-- Changing the name of the tab -->
+{% block Title%}About Us{% endblock%}
+
+<!-- We didn't use the super() because, we have to change a tag's (advice's) style
+and the css solely didn't work-->
+{% block Navigation %}
+   <nav class="navMenu" style="display: inline">
+          <ul>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('motivation') }}">Motivation</a></li>
+              <li><a href="{{ url_for('advices') }}">Advices</a></li>
+              <li><a href="{{ url_for('bored') }}">Bored?</a></li>
+              <li><a  style="  color: #DA897A;
+              border-bottom:1px solid #000000; font-weight: bold;"
+                      href="{{ url_for('about') }}">About Us</a></li>
+          </ul>
+      </nav>
+{% endblock %}
+
+
+<!-- We didn't write anything in  quotes blocks because we're not using them-->
+{% block quote %} {% endblock %}
+{% block Buttons %} {% endblock %}
+
+<!-- With this block we can change the background image depending on the page-->
+{% block Background %}
+
+
+
+{% endblock %}
