@@ -3,6 +3,7 @@
 
 <!-- Changing the name of the tab -->
 {% block Title%}My Profile{% endblock%}
+{% block href%}href="{{ url_for('static', filename='css/myprofile.css') }}"{% endblock%}
 
 <!-- We didn't use the super() because, we have to change a tag's (advice's) style
 and the css solely didn't work-->
@@ -20,7 +21,7 @@ and the css solely didn't work-->
 
 {% endblock %}
 
-<!-- We didn't write anything in quotes' block because we'Wre not using them-->
+<!-- We didn't write anything in quotes' block because we're not using them-->
 {% block Buttons %}
     <nav class="userManagement">
         <li><a  id="myProfile" style="color: #DA897A;
@@ -31,11 +32,24 @@ and the css solely didn't work-->
 {% block quote %}{% endblock %}
 
 
+
+<!-- The background block is altered to display the saved quotes from previous pages -->
 {% block Background %}
+<div class="containerQuotes">
+  <h1 class="center">SAVED QUOTES</h1>
+    <br>
+
+    <!-- For loop should generate here -->
+  <article class="episode">
+    <div><button class="SavedButton">SAVED</button></div>
+      <div class="story">
+        <p>The dawn right before the sun rises is the darkest.</p>
+      </div>
+  </article>
+
+</div>
+
 
 {% endblock %}
 
-<!-- End of the block -->
-
-</div>
 
