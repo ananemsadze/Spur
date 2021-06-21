@@ -4,6 +4,11 @@
 <!-- Changing the name of the tab -->
 {% block Title%}About Us{% endblock%}
 
+{% block fBackground %}
+        <img id="HomeBackground"
+         src="{{ url_for('static', filename='images/home_background.png') }}"
+         alt="Home Page's Background">
+{% endblock %}
 <!-- We didn't use the super() because, we have to change a tag's (advice's) style
 and the css solely didn't work-->
 {% block Navigation %}
@@ -41,8 +46,6 @@ and the css solely didn't work-->
             </div>
          </div>
 
-            <img id="HomeBackground"
-             src="{{ url_for('static', filename='images/home_background.png') }}"
-             alt="Home Page's Background">
+
 
 {% endblock %}
