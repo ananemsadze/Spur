@@ -15,19 +15,35 @@ and the css solely didn't work-->
               <li><a href="{{ url_for('bored') }}">Bored?</a></li>
               <li><a  style="  color: #DA897A;
               border-bottom:1px solid #000000; font-weight: bold;"
-                      href="{{ url_for('about') }}">About Us</a></li>
+                      href="{{ url_for('about')}}">About Us</a></li>
           </ul>
       </nav>
 {% endblock %}
 
-
-<!-- We didn't write anything in  quotes blocks because we're not using them-->
-{% block quote %} {% endblock %}
+<!-- We didn't write anything in Buttons or quotes blocks because we're not using them-->
 {% block Buttons %} {% endblock %}
+{% block quote %}{% endblock %}
 
-<!-- With this block we can change the background image depending on the page-->
+<!-- The Background block is slightly altered to display the information for the website and also change the background image -->
 {% block Background %}
+         <div id="wrapper">
+             <p><b>Spur</b> (get your life together) is motivational website designed for the people
+         who are seeking inspiration. Randomly generated quotes might give the users a little bit of spark to
+                 engage in any sort of activities or to get their lives together</p>
+             <br>
+             <p>It is designed for University's Project. It's written in Python's web framework <b>Flask</b>, Web Templates and
+                 open-source <b>SQL toolkit</b> is used for users' authorization.  </p>
+               <br>
+             <p><b>Spur</b> is created by <b>Ana Gagnidze</b> and <b>Ana Nemsadze</b>  </p>
+                    <br>
+                    <br>
+                 <div class="github_link"> For accessing the code <a target="_blank" href="https://github.com/ananemsadze/Spur">click here</a>
+            </div>
+         </div>
 
+            <img id="HomeBackground"
+             src="{{ url_for('static', filename='images/home_background.png') }}"
+             alt="Home Page's Background">
 
 
 {% endblock %}

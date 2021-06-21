@@ -252,3 +252,34 @@ li {
   color: black;
   background-color: #FB5569;
 }
+
+/* About Us page*/
+
+#wrapper{
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  top: 25%;
+  margin-left: 5%;
+  font-size: 20px;
+  word-wrap: break-word;
+  font-weight: 350;
+  width: 550px;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.github_link{
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+.github_link a{
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+  font-weight: bold;
+}
+.github_link a:hover{
+  color: rgb(251, 85, 105);
+  text-decoration: underline;
+}
