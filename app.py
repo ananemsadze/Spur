@@ -17,12 +17,10 @@ class Users(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
 
 
-all_usernames_list = []
-all_email_list = []
+all_user_dict = {}
 all_users = Users.query.all()
 for un in all_users:
-    all_usernames_list.append(un.username)
-    all_email_list.append(un.email)
+    all_user_dict[un.email] = un.username
 
 
 @app.route('/')
@@ -39,9 +37,10 @@ def motivation():
 def login():
     if request.method == 'POST':
         email = request.form['email']
-        if email in all_email_list:
+        if email in all_user_dict.keys():
             session.permanent = True
             session['email'] = email
+            session['username'] = all_user_dict[email]
             return redirect(url_for('home'))
 
     return render_template("login.html")
@@ -54,9 +53,10 @@ def register():
         email = request.form['email']
         password = request.form['password']
         repeat_password = request.form['repeatPassword']
-        if(username not in all_usernames_list and email not in all_email_list) and password == repeat_password:
+        if(username not in all_user_dict.values() and email not in all_user_dict.keys()) and password == repeat_password:
             session.permanent = True
             session['email'] = email
+            session['username'] = username
             user = Users(username=username, email=email)
             db.session.add(user)
             db.session.commit()
@@ -83,6 +83,11 @@ def about():
 def profile():
     return render_template("myprofile.html")
 
+
+@app.route('/signout')
+def signout():
+    session.pop('email')
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':
