@@ -35,14 +35,22 @@ and the css solely didn't work-->
 
 <!-- The background block is altered to display the saved quotes from previous pages -->
 {% block Background %}
-<div class="containerQuotes">
-  <h1 class="center">SAVED QUOTES</h1>
+
+<img class="BG" src="{{ url_for('static', filename='images/motivation.jpg') }}"
+             alt="My Profile Page's Background">"
+
+<div class="forUser" style="margin-top: -4%">
+  <h2 class="center">@username</h2>
     <br>
+    <h1 class="center">SAVED QUOTES</h1>
+    <br>
+</div>
+<div class="containerQuotes" style="margin-top: 23%">
 
     <!-- For loop should generate here -->
   <article class="episode">
     <div><button class="SavedButton">SAVED</button></div>
-      <div class="story">
+      <div class="phrase">
         <p>The dawn right before the sun rises is the darkest.</p>
       </div>
   </article>

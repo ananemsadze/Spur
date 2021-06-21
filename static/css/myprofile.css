@@ -5,7 +5,8 @@
 body {
   background: white;
   font-family: "Montserrat", sans-serif;
-  margin: 0; height: 100%; overflow: hidden
+  margin: 0;
+  overflow: auto;
 }
 
 
@@ -56,6 +57,12 @@ li {
 }
 
 
+.BG{
+  width: 100%;
+  height: 440px;
+  top: 0;
+}
+
 /* User Management Navigation*/
 .userManagement{
   position: absolute;
@@ -95,31 +102,51 @@ li {
   transform: translateX(30px);
 }
 
+
 /* End of User Management */
 
-
-
 p {
-  margin: 0 0 13px 0;
+  margin: 2% 0 2% 0;
 }
 
 .center { text-align: center; }
 
+.forUser{
+  position: fixed;
+  padding: 2em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+
+}
 
 .containerQuotes {
-  width: 95%;
-  max-width: 1220px;
-  margin: 0 auto;
-  position: absolute;
-  top: 50%;
+  height: 100%;
+  overflow-y: scroll;
+  position: fixed;
+  padding: 2em;
   left: 50%;
-  transform: translate(-50%, -50%)
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+.containerQuotes::-webkit-scrollbar {
+  display: none;
+}
+
+.containerQuotes {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .episode {
+  transform: none;
   display: grid;
   grid-template-columns: 1fr 3fr;
   position: relative;
+  border-bottom:1px solid #000000;
+  border-top:1px solid #000000;
 }
 
 .episode__content {
@@ -131,7 +158,7 @@ p {
 }
 
 
-.episode__content .story {
+.episode__content .phrase {
   line-height: 26px;
 }
 
@@ -142,7 +169,7 @@ p {
 }
 
 @media (max-width: 576px) {
-  .episode__content .story {
+  .episode__content .phrase {
     font-size: 15px;
   }
 }
@@ -150,7 +177,9 @@ p {
 
 .SavedButton {
   padding: 10px 25px;
-  font-size: 0.8em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 0.5em;
   font-weight: 550;
   background: #000000;
   outline: none !important;
