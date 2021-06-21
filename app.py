@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for
+import os
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -35,6 +36,8 @@ def about():
 @app.route('/MyProfile')
 def profile():
     return render_template("myprofile.html")
+
+
 
 if __name__ == '__main__':
     app.run()

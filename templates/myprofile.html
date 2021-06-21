@@ -4,10 +4,17 @@
   <head>
       <title>Spur</title>
       <link rel="stylesheet"
-          {% block href%}href="{{ url_for('static', filename='css/styles.css') }}"{% endblock%}>
+          href="{{ url_for('static', filename='css/myprofile.css') }}">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
   </head>
 
   <body>
+
+  <img id="ProfileBackground"
+             src="{{ url_for('static', filename='images/home_background.png') }}"
+             alt="My Profiles's Background">
 
       <nav class="navMenu" style="display: inline">
           <ul>
@@ -19,4 +26,21 @@
           </ul>
       </nav>
 
-    <!-- End of Bar -->
+
+
+<!-- to display saved quotes -->
+
+    <h3 class="centered">@username</h3>
+<div class="list-group list-group-mine">
+  <a class="list-group-item" >My sin was not specifically this or that but consisted of having shaken hands with the devil. The devil held me in his clutches, the enemy was behind me
+      <br>
+      <button class="SavedButton">SAVED</button>
+  </a>
+
+
+</div>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  </body>
