@@ -5,6 +5,8 @@
 {% block Title%}My Profile{% endblock%}
 {% block href%}href="{{ url_for('static', filename='css/myprofile.css') }}"{% endblock%}
 
+{% block fBackground %}
+{% endblock %}
 <!-- We didn't use the super() because, we have to change a tag's (advice's) style
 and the css solely didn't work-->
 {% block Navigation %}
@@ -40,7 +42,9 @@ and the css solely didn't work-->
              alt="My Profile Page's Background">"
 
 <div class="forUser" style="margin-top: -4%">
-  <h2 class="center">@username</h2>
+{% if 'email' in session %}
+  <h2 class="center">@{{session['username']}}</h2>
+{% endif %}
     <br>
     <h1 class="center">SAVED QUOTES</h1>
     <br>
