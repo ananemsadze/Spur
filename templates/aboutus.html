@@ -25,9 +25,13 @@ and the css solely didn't work-->
       </nav>
 {% endblock %}
 
-<!-- We didn't write anything in Buttons or quotes blocks because we're not using them-->
-{% block Buttons %} {% endblock %}
-{% block quote %} {% endblock %}
+<!-- We didn't write anything in quotes block because we're not using them-->
+<!-- We used Super here because we need everything from original block -->
+{% block Buttons %}
+{{super()}}
+{% endblock %}
+{% block quote %}{% endblock %}
+
 
 <!-- The Background block is slightly altered to display the information for the website and also change the background image -->
 {% block Background %}
