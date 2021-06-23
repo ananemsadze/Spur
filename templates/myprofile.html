@@ -27,7 +27,7 @@ and the css solely didn't work-->
 <!-- We didn't use super() in Buttons because it had to be altered -->
 {% block Buttons %}
         <nav class="userManagement">
-        <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile')}}">my profile</a></li>
+        <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile',username=session['username'])}}">my profile</a></li>
         <li><a id="signOut" style="font-weight: bold" href="/signout">sign out</a></li>
         </nav>
 {% endblock %}
@@ -43,7 +43,7 @@ and the css solely didn't work-->
 
 <div class="forUser" style="margin-top: -4%">
 {% if 'email' in session %}
-  <h2 class="center">@{{session['username']}}</h2>
+  <h2 class="center">@{{username}}</h2>
 {% endif %}
     <br>
     <h1 class="center">SAVED QUOTES</h1>
@@ -54,9 +54,17 @@ and the css solely didn't work-->
 <div class="containerQuotes" style="margin-top: 23%">
     {% for quote in set_of_quotes %}
           <article class="episode">
-            <div><form method="post" action="/removeQuote/{{ quote }}">
+          {% if username == session["username"] %}
+            <div>
+                <form method="post" action="/removeQuote/{{ quote }}">
                     <input type="submit" class="SavedButton" value="SAVED">
                 </form>
+          {% else %}
+                <div>
+                <form style="pointer-events: none">
+                    <input type="submit" class="SavedButton" value="SAVED">
+                </form>
+          {% endif %}
               <div class="phrase">
                 <p>{{ quote }}</p>
               </div>

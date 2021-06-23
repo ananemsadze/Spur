@@ -61,7 +61,7 @@
     {% block Buttons %}
         {% if 'email' in session %}
         <nav class="userManagement">
-        <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile')}}">my profile</a></li>
+        <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile',username=session['username'])}}">my profile</a></li>
         <li><a id="signOut" style="font-weight: bold" href="/signout">sign out</a></li>
         </nav>
             {% elif 'email' not in session %}
@@ -89,8 +89,6 @@
 {#             src="{{ url_for('static', filename='images/home_background.png') }}"#}
 {#             alt="Home Page's Background">#}
     {% endblock %}
-
-
 
   </body>
 </html>

@@ -77,7 +77,7 @@ def removeQuote(quote):
             db.session.delete(un)
             db.session.commit()
 
-    return redirect('/MyProfile')
+    return redirect('/Profile/'+session["username"])
 
 @app.route('/Motivation',methods=['GET'])
 def motivation():
@@ -144,14 +144,16 @@ def about():
     return render_template("aboutus.html")
 
 
-@app.route('/MyProfile')
-def profile():
+@app.route('/Profile/<username>')
+def profile(username):
     all_quotes = Quotes.query.all()
     set_of_quotes = set()
     for un in all_quotes:
-        if un.username == session["username"]:
+        if un.username == username:
             set_of_quotes.add(un.quote)
-    return render_template("myprofile.html", set_of_quotes=set_of_quotes)
+    if not username in all_username:
+        return redirect("/")
+    return render_template("myprofile.html", set_of_quotes=set_of_quotes,username=username)
 
 
 @app.route('/signout')
