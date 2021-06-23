@@ -26,7 +26,16 @@ and the css solely didn't work-->
 <!-- We didn't use super() in Buttons because it had to be altered -->
 {% block Buttons %}
         <nav class="userManagement">
-        <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile')}}">my profile</a></li>
+              <li>
+      <a class="input-group" >
+          <form method="post" action="/Search">
+              <input type="search" name="search"  class="form-control" placeholder="...Search" aria-label="Search"
+                aria-describedby="search-addon" />
+              <button type="submit" class="searchButton">search</button>
+          </form>
+       </a>
+       </li>
+        <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile',username=session['username'])}}">my profile</a></li>
         <li><a id="signOut" style="font-weight: bold" href="/signout">sign out</a></li>
         </nav>
 {% endblock %}
@@ -43,16 +52,15 @@ or generate another one -->
 
 
         <div class="centered">
-            <p class="TextForQuote">It's okay to shed the tears
-        But don't you tear yourself</p>
+            <p class="TextForQuote">{{ advice }}</p>
+        </div>
 
-
-            <nav class="ActionButtons" style="display: inline;  float:right;" >
-            <li><button class="NextButton">NEXT</button></li>
-            <li><button class="SaveButton">SAVE</button></li>
-        </nav>
-
-
+        <div class="nextsave">
+            <a href="/Advices"><button class="NextButton">NEXT</button></a>
+            <br>
+            <form method="post" action="/addQuote/{{ advice }}/Advices">
+                <input type="submit" class="SaveButton" value="SAVE">
+            </form>
         </div>
 
 

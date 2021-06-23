@@ -27,7 +27,16 @@ and the css solely didn't work-->
 <!-- We didn't use super() in Buttons because it had to be altered -->
 {% block Buttons %}
         <nav class="userManagement">
-        <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile')}}">my profile</a></li>
+                  <li>
+      <a class="input-group" >
+          <form method="post" action="/Search">
+              <input type="search" name="search"  class="form-control" placeholder="...Search" aria-label="Search"
+                aria-describedby="search-addon" />
+              <button type="submit" class="searchButton">search</button>
+          </form>
+       </a>
+       </li>
+        <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile',username=session['username'])}}">my profile</a></li>
         <li><a id="signOut" style="font-weight: bold" href="/signout">sign out</a></li>
         </nav>
 {% endblock %}
@@ -38,30 +47,45 @@ and the css solely didn't work-->
 <!-- The background block is altered to display the saved quotes from previous pages -->
 {% block Background %}
 
-<img class="BG" src="{{ url_for('static', filename='images/motivation.jpg') }}"
-             alt="My Profile Page's Background">"
-
 <div class="forUser" style="margin-top: -4%">
-{% if 'email' in session %}
-  <h2 class="center">@{{session['username']}}</h2>
+{% if 'username' in session %}
+  <h2 class="center">@{{username}}</h2>
 {% endif %}
     <br>
     <h1 class="center">SAVED QUOTES</h1>
     <br>
+{% if not set_of_quotes %}
+<div class="center" >
+    <p>You don't have any quotes</p>
 </div>
+{% endif %}
+</div>
+
+{% if set_of_quotes %}
 <div class="containerQuotes" style="margin-top: 23%">
-
-    <!-- For loop should generate here -->
-  <article class="episode">
-    <div><button class="SavedButton">SAVED</button></div>
-      <div class="phrase">
-        <p>The dawn right before the sun rises is the darkest.</p>
-      </div>
-  </article>
-
+    {% for quote in set_of_quotes %}
+          <article class="episode">
+          {% if username == session["username"] %}
+            <div>
+                <form method="post" action="/removeQuote/{{ quote }}">
+                    <input type="submit" class="SavedButton" value="SAVED">
+                </form>
+          {% else %}
+                <div>
+                <form style="pointer-events: none">
+                    <input type="submit" class="SavedButton" value="SAVED">
+                </form>
+          {% endif %}
+              <div class="phrase">
+                <p>{{ quote }}</p>
+              </div>
+            </div>
+          </article>
+        <br>
+    {% endfor %}
 </div>
 
-
+{% endif %}
 
 {% endblock %}
 
