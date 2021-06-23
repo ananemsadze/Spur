@@ -49,19 +49,20 @@ and the css solely didn't work-->
     <h1 class="center">SAVED QUOTES</h1>
     <br>
 </div>
+
 <div class="containerQuotes" style="margin-top: 23%">
-
-    <!-- For loop should generate here -->
-  <article class="episode">
-    <div><button class="SavedButton">SAVED</button></div>
-      <div class="phrase">
-        <p>The dawn right before the sun rises is the darkest.</p>
-      </div>
-  </article>
-
+    {% for quote in set_of_quotes %}
+          <article class="episode">
+            <div><form method="post" action="/removeQuote/{{ quote }}">
+                    <input type="submit" class="SavedButton" value="SAVED">
+                </form>
+              <div class="phrase">
+                <p>{{ quote }}</p>
+              </div>
+          </article>
+        <br>
+    {% endfor %}
 </div>
-
-
 
 {% endblock %}
 

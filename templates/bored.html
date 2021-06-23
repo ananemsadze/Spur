@@ -43,15 +43,16 @@ or generate another one -->
              alt="Motivation Page's Background">"
 
         <div class="centered">
-            <p class="TextForQuote">As if we were waiting
-        We bloom until we ache
-        Maybe it's the providence of the universe
-        It just had to be that</p>
+            <p class="TextForQuote">{{ quote }}</p>
 
 
             <nav class="ActionButtons" style="display: inline;  float:right;" >
-            <li><button class="NextButton">NEXT</button></li>
-            <li><button class="SaveButton">SAVE</button></li>
+            <li><button class="NextButton"><a href="/Bored">NEXT</a></button></li>
+            <li>
+                <form method="post" action="/addQuote/{{ quote }}/Bored">
+                    <input type="submit" class="SaveButton" value="SAVE">
+                </form>
+            </li>
         </nav>
 
 

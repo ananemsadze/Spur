@@ -43,13 +43,16 @@ or generate another one -->
 
 
         <div class="centered">
-            <p class="TextForQuote">It's okay to shed the tears
-        But don't you tear yourself</p>
+            <p class="TextForQuote">{{ advice }}</p>
 
 
             <nav class="ActionButtons" style="display: inline;  float:right;" >
-            <li><button class="NextButton">NEXT</button></li>
-            <li><button class="SaveButton">SAVE</button></li>
+            <li><button class="NextButton"><a href="/Advices">NEXT</a></button></li>
+            <li>
+                <form method="post" action="/addQuote/{{ advice }}/Advices">
+                    <input type="submit" class="SaveButton" value="SAVE">
+                </form>
+            </li>
         </nav>
 
 
