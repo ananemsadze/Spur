@@ -143,6 +143,12 @@ def bored():
 def about():
     return render_template("aboutus.html")
 
+@app.route('/Search',methods=['POST'])
+def search():
+    username = request.form['search']
+
+    return redirect('/Profile/'+str(username))
+
 
 @app.route('/Profile/<username>')
 def profile(username):

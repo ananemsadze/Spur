@@ -28,6 +28,15 @@ and the css solely didn't work-->
 <!-- We didn't use super() in Buttons because it had to be altered -->
 {% block Buttons %}
         <nav class="userManagement">
+                <li>
+      <a class="input-group" >
+          <form method="post" action="/Search">
+              <input type="search" name="search"  class="form-control" placeholder="...Search" aria-label="Search"
+                aria-describedby="search-addon" />
+              <button type="submit" class="searchButton">search</button>
+          </form>
+       </a>
+       </li>
         <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile',username=session['username'])}}">my profile</a></li>
         <li><a id="signOut" style="font-weight: bold" href="/signout">sign out</a></li>
         </nav>

@@ -32,6 +32,47 @@ li {
    margin-right: 20px;
    }
 
+.input-group{
+  text-decoration: none;
+}
+.form-control{
+  height: 30px;
+  width: 250px;
+  text-decoration: none;
+  font-size: 1em;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding-left: 3%;
+
+}
+.userManagement form{
+  display: inline-block;
+}
+
+.form-control:hover{
+  border:1px solid #000000;
+  border-radius: 10px;
+}
+
+.searchButton{
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #ffffff;
+  background-color: #4e4e4e;
+  border-radius: 10px;
+  font-size: 1em;
+  font-family: "Montserrat", sans-serif;
+  height: 30px;
+  width: 55px;
+  border: none;
+}
+.searchButton:hover{
+  background-color:#da897a ;
+}
+.searchButton:focus{
+  background-color: #FB5569;
+}
 
 .navMenu{
   position: absolute;
@@ -96,7 +137,6 @@ li {
 
 .userManagement a:hover{
   color: #DA897A;
-  border-bottom:1px solid #000000;
   -webkit-transform: translateX(30px);
   transform: translateX(30px);
   opacity: 1;
