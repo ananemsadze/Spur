@@ -3,11 +3,11 @@
 
 
 body {
-  background: white;
   font-family: "Montserrat", sans-serif;
   height: 100%;
   margin: 0;
   overflow: auto;
+  background-color: #fcebe5;
 }
 
 
@@ -57,18 +57,11 @@ li {
   transform: translateX(30px);
 }
 
-
-.BG{
-  width: 100%;
-  height: 440px;
-  top: 0;
-}
-
 /* User Management Navigation*/
 .userManagement{
   position: absolute;
   margin-top: 60px;
-  right: -5%;
+  right: -18%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   display:inline-block;

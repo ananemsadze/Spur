@@ -41,6 +41,14 @@
                 <input type="password" name="password" required>
                 <label>Password</label>
             </div>
+           {% with messages=get_flashed_messages() %}
+
+              {% for msg in messages %}
+
+                  <p style="color: firebrick; font-size: 13px">{{ msg }}</p>
+
+                {% endfor %}
+          {% endwith %}
             <input type="submit" value="Log In">
             <div class="signup_link">Not a member? <a href="{{ url_for('register')}}">Sign Up</a>
             </div>

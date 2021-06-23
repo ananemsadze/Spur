@@ -28,7 +28,7 @@
     Some of the styling is done here, because we want to change the a tags' style depending
     on the page the user is on -->
   {% block Navigation %}
-      {% if 'email' in session %}
+      {% if 'username' in session %}
           <nav class="navMenu" style="display: inline">
           <ul>
               <li><a  style="  color: #DA897A;
@@ -39,7 +39,7 @@
               <li><a href="{{ url_for('about') }}">About Us</a></li>
           </ul>
       </nav>
-          {%elif 'email' not in session%}
+          {%elif 'username' not in session%}
       <nav class="navMenu" style="display: inline">
           <ul>
               <li><a  style="  color: #DA897A;
@@ -59,8 +59,9 @@
      if the user is not logged in and is on the home page, the buttons for
      login and sign up should appear -->
     {% block Buttons %}
-        {% if 'email' in session %}
+        {% if 'username' in session %}
         <nav class="userManagement">
+        <li>
         <li>
       <a class="input-group" >
           <form method="post" action="/Search">
@@ -73,7 +74,7 @@
         <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile',username=session['username'])}}">my profile</a></li>
         <li><a id="signOut" style="font-weight: bold" href="/signout">sign out</a></li>
         </nav>
-            {% elif 'email' not in session %}
+            {% elif 'username' not in session %}
         <nav class="Buttons" style="display: inline;  float:right;" >
             <li><a href="{{ url_for('login')}}"><button class="LoginButton">log in</button></a></li>
             <li><a href="{{ url_for('register')}}"><button class="SignUpButton">sign up</button></a></li>

@@ -47,16 +47,18 @@ and the css solely didn't work-->
 <!-- The background block is altered to display the saved quotes from previous pages -->
 {% block Background %}
 
-<img class="BG" src="{{ url_for('static', filename='images/motivation.jpg') }}"
-             alt="My Profile Page's Background">
-
 <div class="forUser" style="margin-top: -4%">
-{% if 'email' in session %}
+{% if 'username' in session %}
   <h2 class="center">@{{username}}</h2>
 {% endif %}
     <br>
     <h1 class="center">SAVED QUOTES</h1>
     <br>
+{% if not set_of_quotes %}
+<div class="center" >
+    <p>You don't have any quotes</p>
+</div>
+{% endif %}
 </div>
 
 {% if set_of_quotes %}
@@ -83,10 +85,6 @@ and the css solely didn't work-->
     {% endfor %}
 </div>
 
-{% else %}
-<div class="center">
-    <p>You don't have any quotes</p>
-</div>
 {% endif %}
 
 {% endblock %}

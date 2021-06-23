@@ -118,7 +118,7 @@ li {
 .userManagement{
   position: absolute;
   margin-top: 60px;
-  right: -5%;
+  right: -18%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   display:inline-block;
@@ -263,7 +263,7 @@ li {
 .nextsave form{
   position: absolute;
   top: 58%;
-  left: 60%;
+  left: 62%;
   transform: translate(-50%, -50%);
 }
 
