@@ -26,15 +26,22 @@ class Quotes(db.Model):
 
 db.create_all()
 
-all_user_dict = {}
-all_users = Users.query.all()
-for un in all_users:
-    all_user_dict[un.email] = {un.username: un.password}
+def get_all_user_dict():
+    all_user_dict = {}
 
-all_username = []
-for email in all_user_dict:
-    username = list(all_user_dict[email].keys())[0]
-    all_username.append(username)
+    all_users = Users.query.all()
+    for un in all_users:
+        all_user_dict[un.email] = {un.username: un.password}
+
+    return  all_user_dict
+
+def get_all_usenames():
+    all_username = []
+    for email in get_all_user_dict():
+        username = list(get_all_user_dict()[email].keys())[0]
+        all_username.append(username)
+
+    return all_username
 
 
 # </ ------------------------------------------------------------------------------------------------------------------
@@ -87,11 +94,13 @@ def motivation():
 
 @app.route('/Login', methods=['POST', 'GET'])
 def login():
+    all_user_dict = get_all_user_dict()
+
     if request.method == 'POST':
         email = request.form['email']
         if email in all_user_dict.keys():
             password = request.form["password"]
-            if password == all_user_dict[un.email][list(all_user_dict[un.email])[0]]:
+            if password == all_user_dict[email][list(all_user_dict[email])[0]]:
                 session.permanent = True
                 session['email'] = email
 
@@ -107,6 +116,8 @@ def login():
 
 @app.route('/SignUp', methods=['POST', 'GET'])
 def register():
+    all_username = get_all_usenames()
+    all_user_dict = get_all_user_dict()
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
@@ -152,6 +163,7 @@ def search():
 
 @app.route('/Profile/<username>')
 def profile(username):
+    all_username = get_all_usenames()
     all_quotes = Quotes.query.all()
     set_of_quotes = set()
     for un in all_quotes:
