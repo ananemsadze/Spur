@@ -5,10 +5,9 @@
 body {
   background: white;
   font-family: "Montserrat", sans-serif;
-  margin: 0;
-  /*overflow: auto;*/
   height: 100%;
-  overflow-y: scroll;
+  margin: 0;
+  overflow: auto;
 }
 
 
@@ -113,6 +112,7 @@ p {
 
 .center { text-align: center; }
 
+
 .forUser{
   position: absolute;
   padding: 2em;
@@ -123,18 +123,23 @@ p {
 
 }
 
+
 .containerQuotes {
   height: 100%;
-  overflow-y: scroll;
-  position: relative;
+  display: block;
+  position: absolute;
   padding: 2em;
   left: 50%;
-  top: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
   width: 50%;
 }
 .containerQuotes::-webkit-scrollbar {
   display: none;
+}
+.phrase{
+  width: 400%;
+
 }
 
 .containerQuotes {
@@ -147,8 +152,11 @@ p {
   display: grid;
   grid-template-columns: 1fr 3fr;
   position: relative;
-  border-bottom:1px solid #000000;
   border-top:1px solid #000000;
+}
+
+.episode .phrase p  {
+  word-break: break-word;
 }
 
 .episode__content {

@@ -44,18 +44,14 @@ or generate another one -->
 
         <div class="centered">
             <p class="TextForQuote">{{ quote }}</p>
+        </div>
 
-
-            <nav class="ActionButtons" style="display: inline;  float:right;" >
-            <li><button class="NextButton"><a href="/Bored">NEXT</a></button></li>
-            <li>
-                <form method="post" action="/addQuote/{{ quote }}/Bored">
-                    <input type="submit" class="SaveButton" value="SAVE">
-                </form>
-            </li>
-        </nav>
-
-
+        <div class="nextsave">
+            <a href="/Bored"><button class="NextButton">NEXT</button></a>
+            <br>
+            <form method="post" action="/addQuote/{{ quote }}/Bored">
+                <input type="submit" class="SaveButton" value="SAVE">
+            </form>
         </div>
 
 

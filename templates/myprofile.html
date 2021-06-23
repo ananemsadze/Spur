@@ -39,7 +39,7 @@ and the css solely didn't work-->
 {% block Background %}
 
 <img class="BG" src="{{ url_for('static', filename='images/motivation.jpg') }}"
-             alt="My Profile Page's Background">"
+             alt="My Profile Page's Background">
 
 <div class="forUser" style="margin-top: -4%">
 {% if 'email' in session %}
@@ -50,6 +50,7 @@ and the css solely didn't work-->
     <br>
 </div>
 
+{% if set_of_quotes %}
 <div class="containerQuotes" style="margin-top: 23%">
     {% for quote in set_of_quotes %}
           <article class="episode">
@@ -59,10 +60,17 @@ and the css solely didn't work-->
               <div class="phrase">
                 <p>{{ quote }}</p>
               </div>
+            </div>
           </article>
         <br>
     {% endfor %}
 </div>
+
+{% else %}
+<div class="center">
+    <p>You don't have any quotes</p>
+</div>
+{% endif %}
 
 {% endblock %}
 
