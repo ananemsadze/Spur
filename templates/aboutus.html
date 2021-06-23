@@ -9,25 +9,45 @@
          src="{{ url_for('static', filename='images/home_background.png') }}"
          alt="Home Page's Background">
 {% endblock %}
-<!-- We didn't use the super() because, we have to change a tag's (advice's) style
-and the css solely didn't work-->
-{% block Navigation %}
-   <nav class="navMenu" style="display: inline">
+ <!-- Navigation bar block
+    Some of the styling is done here, because we want to change the a tags' style depending
+    on the page the user is on -->
+  {% block Navigation %}
+      {% if 'username' in session %}
+          <nav class="navMenu" style="display: inline">
           <ul>
               <li><a href="{{ url_for('home') }}">Home</a></li>
               <li><a href="{{ url_for('motivation') }}">Motivation</a></li>
               <li><a href="{{ url_for('advices') }}">Advices</a></li>
               <li><a href="{{ url_for('bored') }}">Bored?</a></li>
-              <li><a  style="  color: #DA897A;
+              <li><a   style="  color: #DA897A;
               border-bottom:1px solid #000000; font-weight: bold;"
-                      href="{{ url_for('about')}}">About Us</a></li>
+                       href="{{ url_for('about') }}">About Us</a></li>
           </ul>
       </nav>
-{% endblock %}
+          {%elif 'username' not in session%}
+      <nav class="navMenu" style="display: inline">
+          <ul>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><span title="Login to access"><a style="pointer-events: none" href="{{ url_for('motivation') }}">Motivation</a></span></li>
+              <li><span title="Login to access"><a style="pointer-events: none" href="{{ url_for('advices') }}">Advices</a></span></li>
+              <li><span title="Login to access"><a style="pointer-events: none" href="{{ url_for('bored') }}">Bored?</a></span></li>
+              <li><a   style="  color: #DA897A;
+              border-bottom:1px solid #000000; font-weight: bold;"
+                       href="{{ url_for('about') }}">About Us</a></li>
+          </ul>
+      </nav>
+      {% endif %}
+  {% endblock %}
+    <!-- End of Bar -->
 
-<!-- We didn't write anything in Buttons or quotes blocks because we're not using them-->
-{% block Buttons %} {% endblock %}
-{% block quote %} {% endblock %}
+<!-- We didn't write anything in quotes block because we're not using them-->
+<!-- We used Super here because we need everything from original block -->
+{% block Buttons %}
+{{super()}}
+{% endblock %}
+{% block quote %}{% endblock %}
+
 
 <!-- The Background block is slightly altered to display the information for the website and also change the background image -->
 {% block Background %}

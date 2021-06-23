@@ -23,12 +23,23 @@ and the css solely didn't work-->
       </nav>
 {% endblock %}
 
-<!-- We didn't write anything in Buttons or quotes blocks because we're not using them-->
+<!-- We didn't write anything in quotes block because we're not using them-->
+<!-- We didn't use super() in Buttons because it had to be altered -->
 {% block Buttons %}
-    <nav class="userManagement">
-        <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile')}}">my profile</a></li>
-        <li><a id="signOut" style="font-weight: bold" href="#">sign out</a></li>
-        </nav> {% endblock %}
+        <nav class="userManagement">
+                  <li>
+      <a class="input-group" >
+          <form method="post" action="/Search">
+              <input type="search" name="search"  class="form-control" placeholder="...Search" aria-label="Search"
+                aria-describedby="search-addon" />
+              <button type="submit" class="searchButton">search</button>
+          </form>
+       </a>
+       </li>
+        <li><a id="myProfile" style="font-weight: bold" href="{{ url_for('profile',username=session['username'])}}">my profile</a></li>
+        <li><a id="signOut" style="font-weight: bold" href="/signout">sign out</a></li>
+        </nav>
+{% endblock %}
 {% block quote %}{% endblock %}
 
 
@@ -41,18 +52,15 @@ or generate another one -->
              alt="Motivation Page's Background">"
 
         <div class="centered">
-            <p class="TextForQuote">As if we were waiting
-        We bloom until we ache
-        Maybe it's the providence of the universe
-        It just had to be that</p>
+            <p class="TextForQuote">{{ quote }}</p>
+        </div>
 
-
-            <nav class="ActionButtons" style="display: inline;  float:right;" >
-            <li><button class="NextButton">NEXT</button></li>
-            <li><button class="SaveButton">SAVE</button></li>
-        </nav>
-
-
+        <div class="nextsave">
+            <a href="/Bored"><button class="NextButton">NEXT</button></a>
+            <br>
+            <form method="post" action="/addQuote/{{ quote }}/Bored">
+                <input type="submit" class="SaveButton" value="SAVE">
+            </form>
         </div>
 
 

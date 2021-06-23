@@ -32,6 +32,7 @@
     <div class="center">
         <form method="post">
             <h3 style="font-size: 45px">Join Us!</h3>
+
                      <div class="txt_field">
                 <input type="text"  name="username" required>
                 <label>Username</label>
@@ -49,8 +50,18 @@
                 <input type="password" name="repeatPassword" required>
                 <label> Repeat Password</label>
             </div>
+              {% with messages=get_flashed_messages() %}
+
+                  {% for msg in messages %}
+
+                      <p style="color: firebrick; font-size: 13px">{{ msg }}</p>
+
+                    {% endfor %}
+              {% endwith %}
+
 
             <input type="submit" value="Register">
+
             <div class="sign_link">Already a member? <a href="{{ url_for('login')}}">Sign In</a>
             </div>
         </form>

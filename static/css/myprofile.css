@@ -3,10 +3,11 @@
 
 
 body {
-  background: white;
   font-family: "Montserrat", sans-serif;
+  height: 100%;
   margin: 0;
   overflow: auto;
+  background-color: #fcebe5;
 }
 
 
@@ -56,25 +57,18 @@ li {
   transform: translateX(30px);
 }
 
-
-.BG{
-  width: 100%;
-  height: 440px;
-  top: 0;
-}
-
 /* User Management Navigation*/
 .userManagement{
   position: absolute;
   margin-top: 60px;
-  right: -5%;
+  right: -18%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   display:inline-block;
   padding: 10px;
 }
 
-.userManagement a {
+.userManagement a{
   color: black;
   max-width: 200px;
   text-decoration: none;
@@ -86,7 +80,6 @@ li {
 
 .userManagement a:hover{
   color: #DA897A;
-  border-bottom:1px solid #000000;
   -webkit-transform: translateX(30px);
   transform: translateX(30px);
   opacity: 1;
@@ -102,17 +95,15 @@ li {
   transform: translateX(30px);
 }
 
-
-/* End of User Management */
-
 p {
   margin: 2% 0 2% 0;
 }
 
 .center { text-align: center; }
 
+
 .forUser{
-  position: fixed;
+  position: absolute;
   padding: 2em;
   left: 50%;
   top: 50%;
@@ -121,18 +112,23 @@ p {
 
 }
 
+
 .containerQuotes {
   height: 100%;
-  overflow-y: scroll;
-  position: fixed;
+  display: block;
+  position: absolute;
   padding: 2em;
   left: 50%;
-  top: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
   width: 50%;
 }
 .containerQuotes::-webkit-scrollbar {
   display: none;
+}
+.phrase{
+  width: 400%;
+
 }
 
 .containerQuotes {
@@ -145,8 +141,11 @@ p {
   display: grid;
   grid-template-columns: 1fr 3fr;
   position: relative;
-  border-bottom:1px solid #000000;
   border-top:1px solid #000000;
+}
+
+.episode .phrase p  {
+  word-break: break-word;
 }
 
 .episode__content {
@@ -208,4 +207,48 @@ p {
 .SavedButton:hover {
   color: black;
   background-color: #FB5569;
+}
+
+
+.input-group{
+  text-decoration: none;
+}
+.form-control{
+  height: 30px;
+  width: 250px;
+  text-decoration: none;
+  font-size: 1em;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding-left: 3%;
+
+}
+
+.form-control:hover{
+  border:1px solid #000000;
+  border-radius: 10px;
+}
+
+.searchButton{
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #ffffff;
+  background-color: #4e4e4e;
+  border-radius: 10px;
+  font-size: 1em;
+  font-family: "Montserrat", sans-serif;
+  height: 30px;
+  width: 55px;
+  border: none;
+}
+.searchButton:hover{
+  background-color:#da897a ;
+}
+.searchButton:focus{
+  background-color: #FB5569;
+}
+
+.userManagement form{
+  display: inline-block;
 }
