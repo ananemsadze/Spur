@@ -11,7 +11,7 @@ The code is written in Python's web framework Flask, Web Templates and open-sour
 
 
 ## APIs we used
-- [Motivation](https://www.affirmations.dev/)
+- [Affirmation](https://www.affirmations.dev/)
 - [Advices](https://api.adviceslip.com/#top)
 - [Bored](https://www.boredapi.com/documentation#endpoints-accessibility)
 
